@@ -1,18 +1,7 @@
 from sense_hat import SenseHat
 import time
 import requests
-
-# LED Colour Coding Reference
-r = (255, 0, 0)
-o = (255, 165, 0)
-y = (255, 255, 0)
-b = (30, 144, 255)
-g = (0, 255, 0)
-i = (75, 0, 130)
-v = (238, 130, 238)
-n = (135, 80, 22)
-w = (255, 255, 255)
-e = (0, 0, 0)
+import os
 
 sense = SenseHat()
 sense.clear()
@@ -22,12 +11,15 @@ def sensors():
     temp_h = str(round(temp_h,1))
     humidity = sense.get_humidity()
     humidity = str(round(humidity, 2))
-    #Sends sensor information to dweet.io dashboard
     url = 'https://dweet.io/dweet/for/DHT22Test?' + 'Temp=' + temp_h + '&Humidity=' + humidity
     r = requests.post(url)
-    #To show message of temperature and humidity to 8x8 LED Matrix
-    sense.show_messages("T:" + str(temp_h) = "C", scroll_speed = 0.1)
-    sense.show_messages("H:" + str(humidity) + "%", scroll_speed = 0.1)
+
+    #viewForm change to formResponse, and add '&submit=Submit'
+    #Change the link of the google form to the ones you have prepared
+    #url_google = 'https://docs.google.com/forms/d/e/1FAIpQLScyxjg-mIGo98LJrU_GfzrXDF2AaJD0BPCgdFisXeuAImaMcg/formResponse?entry.462400853=' +temp_h+ '&entry.1250497753=' + humidity + '&sub$
+    #g = requests.get(url_google)
+    sense.show_message("T:" + str(temp_h) + "C", scroll_speed = 0.1)
+    sense.show_message("H:" + str(humidity) + "%", scroll_speed = 0.1)
 
 while True:
     sensors()
