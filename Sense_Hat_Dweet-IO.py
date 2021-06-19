@@ -18,16 +18,11 @@ sense.clear()
 
 def sensors():
     temp_h = sense.get_temperature_from_humidity()
-#    temp_h = temp_h*0.8641975
     temp_h = str(round(temp_h,1))
     humidity = sense.get_humidity()
     humidity = str(round(humidity, 2))
     url = 'https://dweet.io/dweet/for/DHT22Test?' + 'Temp=' + temp_h + '&Humidity=' + humidity
     r = requests.post(url)
-
-#def Sense_messages():
-#    sense.show_message("T:" + str(temp_h) + "C", text_colour = o, back_colour = e, scroll_speed = 0.1)
-#    sense.show_message("H:" + str(humidity) + "%", text_colour = b, back_colour = e, scroll_speed = 0.1)
 
 while True:
     sensors()
