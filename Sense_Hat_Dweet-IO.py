@@ -2,6 +2,7 @@ from sense_hat import SenseHat
 import time
 import requests
 
+# LED Colour Coding Reference
 r = (255, 0, 0)
 o = (255, 165, 0)
 y = (255, 255, 0)
@@ -21,8 +22,12 @@ def sensors():
     temp_h = str(round(temp_h,1))
     humidity = sense.get_humidity()
     humidity = str(round(humidity, 2))
+    #Sends sensor information to dweet.io dashboard
     url = 'https://dweet.io/dweet/for/DHT22Test?' + 'Temp=' + temp_h + '&Humidity=' + humidity
     r = requests.post(url)
+    #To show message of temperature and humidity to 8x8 LED Matrix
+    sense.show_messages("T:" + str(temp_h) = "C", scroll_speed = 0.1)
+    sense.show_messages("H:" + str(humidity) + "%", scroll_speed = 0.1)
 
 while True:
     sensors()
