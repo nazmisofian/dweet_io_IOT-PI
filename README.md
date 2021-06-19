@@ -1,5 +1,5 @@
 # dweet_io_IOT-PI
-This is a repository to keep a sample of the functioning script for sending sensor information from the Raspberry Pi Sense-Hat to dweet.io dashboard.
+This is a repository to keep a sample of the functioning script for sending sensor information from the Raspberry Pi Sense-Hat to https://dweet.io/ dashboard.
 
 In order to use the Google Dashboard, you will have to do an additional steps to obtain the links and modify the parameters slightly.
 
